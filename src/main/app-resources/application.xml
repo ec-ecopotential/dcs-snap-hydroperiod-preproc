@@ -4,7 +4,7 @@
     <jobTemplate id="snap">
       <streamingExecutable>/application/snap/run</streamingExecutable>
       <defaultParameters>
-        <parameter id="selectedPolarisations" title="Upsampling method" abstract="Upsampling method" maxOccurs="1" scope="runtime" type="LiteralData">
+        <parameter id="selectedPolarisations" title="Sentinel-1 polarisation" abstract="Sentinel-1 polarisation" maxOccurs="1" scope="runtime" type="LiteralData">
           <options>
             <option>VV</option>
             <option>VH</option>
@@ -17,12 +17,12 @@
       </defaultJobconf>
     </jobTemplate>
   </jobTemplates>
-  <workflow id="dcs-snap-hydroperiod-preproc" title="SNAP application" abstract="SNAP application">
+  <workflow id="dcs-snap-hydroperiod-preproc" title="Hydroperiod pre-processing" abstract="Sentinel-1 Hydroperiod pre-processing (radiometric and geometric correction)">
     <workflowVersion>1.0</workflowVersion>
     <node id="snap">
       <job id="snap"/>
       <sources>
-        <source id="source" title="Sentinel-1 references" abstract="List of Sentinel-1 references" refid="string:list" scope="runtime">https://catalog.terradue.com//sentinel1/search?uid=S1A_IW_GRDH_1SDV_20170918T062705_20170918T062730_018426_01F060_2976</source>
+        <source id="source" title="Sentinel-1 references" abstract="List of Sentinel-1 references" refid="string:list" scope="runtime">https://catalog.terradue.com//sentinel1/search?uid=S1A_IW_GRDH_1SDV_20170918T062705_20170918T062730_018426_01F060_2976,https://catalog.terradue.com//sentinel1/search?uid=S1A_IW_GRDH_1SDV_20170917T182623_20170917T182648_018419_01F031_C36D</source>
       </sources>
     </node>
   </workflow>

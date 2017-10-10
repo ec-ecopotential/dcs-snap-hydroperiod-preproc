@@ -95,7 +95,7 @@ function main() {
   gpt ${SNAP_REQUEST} \
     -Pin=${s1mtd} \
     -Pout=${out} \
-    -p ${TMPDIR}/snap.params 1>&2 || return ${ERR_SNAP} 
+    -p ${TMPDIR}/snap.params 1>&2 || return ${ERR_SNAP}
 
   ciop-log "INFO" "(4 of ${num_steps}) Compress results"  
   tar -C ${TMPDIR} -czf ${out}.tgz $( basename ${out}).dim $( basename ${out}).data || return ${ERR_COMPRESS}
