@@ -4,29 +4,11 @@
     <jobTemplate id="snap">
       <streamingExecutable>/application/snap/run</streamingExecutable>
       <defaultParameters>
-        <parameter id="selectedPolarisations" title="Upsampling method" abstract="Upsampling method" maxOccurs="1" scope="runtime" type="LiteralData">
+        <parameter id="selectedPolarisations" title="Sentinel-1 polarisation" abstract="Sentinel-1 polarisation" maxOccurs="1" scope="runtime" type="LiteralData">
           <options>
             <option>VV</option>
             <option>VH</option>
             <default>VV</default>
-          </options>
-        </parameter>
-        <parameter id="geoRegion" title="Downsampling method" abstract="Downsampling method" maxOccurs="1" scope="runtime" type="LiteralData">POLYGON((14.702 37.584, 15.353 37.584, 15.353 37.953, 14.702 37.953, 14.702 37.584))</parameter>
-        <parameter id="demResamplingMethod" title="Flag downsampling method" abstract="Flag downsampling method" maxOccurs="1" scope="runtime" type="LiteralData">
-          <options>
-            <option>NEAREST_NEIGHBOUR</option>
-            <option>FlagAnd</option>
-            <option>FlagOr</option>
-            <option>FlagMedianOr</option>
-            <option>FlagMedianAnd</option>
-            <default>NEAREST_NEIGHBOUR</default>
-          </options>
-        </parameter>
-        <parameter id="imgResamplingMethod" title="Resample on pyramid levels (for faster imaging)" abstract="Resample on pyramid levels (for faster imaging)" maxOccurs="1" scope="runtime" type="LiteralData">
-          <options>
-            <option>NEAREST_NEIGHBOUR</option>
-            <option>false</option>
-            <default>NEAREST_NEIGHBOUR</default>
           </options>
         </parameter>
       </defaultParameters>
@@ -35,12 +17,12 @@
       </defaultJobconf>
     </jobTemplate>
   </jobTemplates>
-  <workflow id="workflow" title="SNAP application" abstract="SNAP application">
+  <workflow id="dcs-snap-hydroperiod-preproc" title="Hydroperiod pre-processing" abstract="Sentinel-1 Hydroperiod pre-processing (radiometric and geometric correction)">
     <workflowVersion>1.0</workflowVersion>
     <node id="snap">
       <job id="snap"/>
       <sources>
-        <source id="source" title="Sentinel-2 references" abstract="List of Sentinel-2 references" refid="string:list" scope="runtime">https://catalog.terradue.com//e-learning/search?uid=S1A_IW_GRDH_1SDV_20161114T165602_20161114T165627_013941_016729_59B8</source>
+        <source id="source" title="Sentinel-1 references" abstract="List of Sentinel-1 references" refid="string:list" scope="runtime">https://catalog.terradue.com//sentinel1/search?uid=S1A_IW_GRDH_1SDV_20170918T062705_20170918T062730_018426_01F060_2976,https://catalog.terradue.com//sentinel1/search?uid=S1A_IW_GRDH_1SDV_20170917T182623_20170917T182648_018419_01F031_C36D</source>
       </sources>
     </node>
   </workflow>
