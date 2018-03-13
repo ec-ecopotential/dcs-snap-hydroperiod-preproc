@@ -49,6 +49,7 @@
                   <requires>
                     <require>snap</require>
                     <require>bash</require>
+                    <require>gdal-t2</require>
                   </requires>
                 </configuration>
               </execution>
