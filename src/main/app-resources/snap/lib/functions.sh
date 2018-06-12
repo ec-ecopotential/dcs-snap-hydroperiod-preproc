@@ -61,6 +61,7 @@ function set_env() {
   export PATH=${SNAP_HOME}/bin:${PATH}
   export SNAP_VERSION=$( cat ${SNAP_HOME}/VERSION.txt )
 
+  export PATH=/opt/anaconda/bin:${PATH}
   return 0
   
 }
